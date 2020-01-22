@@ -1,0 +1,25 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Annual Salary</th>
+      <th scope="col">DOB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of empList">
+      <td>{{ employee.code | uppercase }}</td>
+      <td>{{ employee.name | empTitle:employee.gender }}</td>
+      <td>{{ employee.gender }}</td>
+      <td>{{ employee.annualSalary }}</td>
+      <td>{{ employee.dateOfBirth | date: "fullDate" | uppercase }}</td>
+    </tr>
+    <tr *ngIf="!empList || empList.length == 0">
+      <td colspan="5">
+        No Employee List to Display
+      </td>
+    </tr>
+  </tbody>
+</table>
